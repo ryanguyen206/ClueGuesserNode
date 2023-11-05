@@ -22,6 +22,10 @@ app.listen(port, () => {
 app.use(cors(corsOptions));
 app.use(bodyParser.json());
 
+//import routes
+const recordRoute = require('./routes/records')
+app.use('/record', recordRoute);
+
 app.post('/puzzlecreation', (req, res) => {
   const createdPuzzle = req.body;
   res.status(200).json({
@@ -35,7 +39,3 @@ app.get('/puzzle', (req, res) => {
   res.send('Goodbye Cruel World. This is the puzzle page');
 });
 
-//win/loss  record
-app.get('/records', (req, res) => {
-  res.send('This is the records page');
-});
