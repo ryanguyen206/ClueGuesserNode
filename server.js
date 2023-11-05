@@ -11,8 +11,6 @@ var corsOptions = {
 }
 
 
-
-
 app.get('/', (req, res) => {
   res.send('Hello, World!');
 });
@@ -25,11 +23,18 @@ app.use(cors(corsOptions));
 app.use(bodyParser.json());
 
 app.post('/puzzlecreation', (req, res) => {
-
   const createdPuzzle = req.body;
-
   res.status(200).json({
     message: 'puzzle pushed successfully',
     data: createdPuzzle
+  });
+});
+
+app.get('/puzzle', (req, res) => {
+  //pull puzzle from mongo.
+  const puzzleToGiveUser = req.body;
+  res.status(200).json({
+    message: 'Puzzle recieved successfully',
+    data: puzzleToGiveUser
   });
 });
