@@ -33,3 +33,13 @@ app.post('/puzzlecreation', (req, res) => {
     data: createdPuzzle
   });
 });
+
+//puzzle
+app.get('/puzzle', (req, res) => {
+  res.send('Goodbye Cruel World. This is the puzzle page');
+});
+
+//win/loss  record
+app.get('/records', (req, res) => {
+  res.send('This is the records page');
+});
