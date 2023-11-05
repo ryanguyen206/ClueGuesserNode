@@ -30,11 +30,12 @@ app.post('/puzzlecreation', (req, res) => {
   });
 });
 
+//puzzle
 app.get('/puzzle', (req, res) => {
-  //pull puzzle from mongo.
-  const puzzleToGiveUser = req.body;
-  res.status(200).json({
-    message: 'Puzzle recieved successfully',
-    data: puzzleToGiveUser
-  });
+  res.send('Goodbye Cruel World. This is the puzzle page');
+});
+
+//win/loss  record
+app.get('/records', (req, res) => {
+  res.send('This is the records page');
 });
