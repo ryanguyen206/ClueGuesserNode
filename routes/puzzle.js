@@ -1,10 +1,9 @@
 const express = require('express');
 const router = express.Router();
-const PuzzleCreationSchema = require('../schema/PuzzleCreation/PuzzleCreationSchema')
-const WordSchema = require('../schema/PuzzleCreation/WordSchema')
+const PuzzleSchema = require('../schema/PuzzleSchema')
 
 
-
+//get a completed puzzle
 router.get('/', async (req, res) => {
     try {
       const result = await WordSchema.find();
@@ -15,9 +14,10 @@ router.get('/', async (req, res) => {
     }
   });
 
+
+//create a new puzzle.
 router.post('/', async (req, res) => {
-    console.log(req.body.cards[0])
-    let newPuzzle = new PuzzleCreationSchema(req.body);
+    let newPuzzle = new PuzzleSchema(req.body);
  
     try{
       const createdWord = await newPuzzle.save();

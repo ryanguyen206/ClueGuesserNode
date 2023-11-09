@@ -3,7 +3,6 @@ const app = express();
 const port = 3000;
 const bodyParser = require('body-parser');
 const cors = require('cors');
-const WordSchema = require('./schema/PuzzleCreation/WordSchema')
 const mongoose = require('mongoose');
 
 
@@ -37,9 +36,9 @@ app.use(bodyParser.json());
 
 //import routes
 const usersRoute = require('./routes/users')
-const puzzleCreationRoute = require('./routes/puzzleCreation')
+const puzzleRoute = require('./routes/puzzle')
 app.use('/users', usersRoute);
-app.use('/puzzle-creation', puzzleCreationRoute);
+app.use('/puzzle', puzzleRoute);
 
 
 
