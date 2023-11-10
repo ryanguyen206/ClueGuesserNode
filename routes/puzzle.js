@@ -6,7 +6,7 @@ const PuzzleSchema = require('../schema/PuzzleSchema')
 //get a completed puzzle
 router.get('/', async (req, res) => {
     try {
-      const result = await WordSchema.find();
+      const result = await PuzzleSchema.find();
       res.json(result);
     } catch (error) {
       console.error('Error:', error);
