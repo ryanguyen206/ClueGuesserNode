@@ -6,8 +6,8 @@ const PuzzleSchema = require('../schema/PuzzleSchema')
 //get a completed puzzle
 router.get('/', async (req, res) => {
     try {
-      const result = await PuzzleSchema.find();
-      res.json(result);
+      const randomPuzzle = await PuzzleSchema.find();
+      res.json(randomPuzzle);
     } catch (error) {
       console.error('Error:', error);
       res.status(500).json({ error: 'Failed to retrieve documents' });
@@ -20,8 +20,8 @@ router.post('/', async (req, res) => {
     let newPuzzle = new PuzzleSchema(req.body);
  
     try{
-      const createdWord = await newPuzzle.save();
-      res.json(createdWord);
+      const createdPuzzle = await newPuzzle.save();
+      res.json(createdPuzzle);
     } catch(error) {
       console.log('Error:', error);
       res.status(500).json({ error: 'Failed to create a word' });
