@@ -21,6 +21,7 @@ router.post('/', async (req, res) => {
  
     try{
       const createdPuzzle = await newPuzzle.save();
+      console.log(createdPuzzle)
       res.json(createdPuzzle);
     } catch(error) {
       console.log('Error:', error);
