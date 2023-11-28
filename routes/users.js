@@ -58,14 +58,16 @@ router.post('/', async (req, res) => {
 
 router.put('/', async (req,res) => {
 
-  let {scoreToUpdate, email, puzzleID} = req.body;
-  console.log(scoreToUpdate, email, puzzleID);
+  let {scoreToUpdate, email, puzzleID, isWinner} = req.body;
+  console.log(scoreToUpdate, email, puzzleID, isWinner);
   try {
     const userWithUpdatedScores = await UserSchema.findOneAndUpdate(
       { email: { $regex: new RegExp(email.trim(), 'i') } },
       {
         $inc: {
           guessingScore: scoreToUpdate,
+          totalWins: isWinner,
+          totalGames: 1
         }
       },
       { new: true } 

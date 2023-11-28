@@ -18,6 +18,14 @@ const UserSchema = new Schema({
         type: Number,
         required: true,
     },
+    totalWins: {
+        type: Number,
+        required: true,
+    },
+    totalGames: {
+        type: Number,
+        required: true,
+    },
     },
     { collection: 'User' }
     );
