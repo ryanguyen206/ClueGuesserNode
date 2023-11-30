@@ -6,8 +6,13 @@ const cors = require('cors');
 const mongoose = require('mongoose');
 
 
+app.set('port', process.env.PORT || 3000);
+
+var server = app.listen(app.get('port'), function() {});
+
 var corsOptions = {
-  origin: 'http://localhost:4200',
+  origin: 'clueguessernodeserver.azurewebsites.net',
+  // origin: 'https://localhost:4200',
   optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204 
 }
 
@@ -24,14 +29,14 @@ db.once('open', () => {
 });
 
 app.get('/', (req, res) => {
-  res.send('Hello, World!');
+  res.send('Hello, World! I am alive');
 });
 
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
 });
 
-app.use(cors(corsOptions));
+// app.use(cors(corsOptions));
 app.use(bodyParser.json());
 
 //import routes

@@ -3,7 +3,7 @@ const router = express.Router();
 const PuzzleSchema = require('../schema/PuzzleSchema')
 
 
-//get a completed puzzle
+// get a completed puzzle
 router.get('/', async (req, res) => {
     try {
       const randomPuzzle = await PuzzleSchema.find();
@@ -14,6 +14,9 @@ router.get('/', async (req, res) => {
     }
   });
 
+// router.get('/', function(req, res) {
+//   res.send('Hello. Testing testing testing. TESTING TESSTTTT.')
+// });
 
 //create a new puzzle.
 router.post('/', async (req, res) => {
